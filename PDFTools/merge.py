@@ -1,5 +1,5 @@
 #this tool will concatenate 2 pdf documents together
-from pyPdf import PdfFileWriter, PdfFileReader
+from PyPDF2 import PdfFileWriter, PdfFileReader
 import argparse
 
 # Creating a routine that appends files to the output file
