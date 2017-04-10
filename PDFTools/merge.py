@@ -3,14 +3,13 @@ from PyPDF2 import PdfFileWriter, PdfFileReader
 import argparse
 
 # Creating a routine that appends files to the output file
-def append_pdf(input,output):
-    [output.addPage(input.getPage(page_num)) for page_num in range(input.numPages)]
-
+def append_pdf(input, output):
+    for pageNum in range(input.numPages):
+        output.addPage(input.getPage(pageNum))
 
 parser = argparse.ArgumentParser()
-parser.add_argument("Input1")
-parser.add_argument("Input2")
-parser.add_argument("Output")
+parser.add_argument("source", nargs='+', help="List of input files to be merged")
+parser.add_argument("-o", "--output", help="name of file to write results to")
 
 args = parser.parse_args()
 
@@ -18,8 +17,8 @@ args = parser.parse_args()
 output = PdfFileWriter()
 
 # Appending two pdf-pages from two different files
-append_pdf(PdfFileReader(open(args.Input1,"rb")),output)
-append_pdf(PdfFileReader(open(args.Input2,"rb")),output)
+for i in range(len(args.source)):
+    append_pdf(PdfFileReader(open(args.source[i], "rb")), output)
 
 # Writing all the collected pages to a file
-output.write(open(args.Output,"wb"))
+output.write(open(args.output,"wb"))
