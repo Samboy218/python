@@ -8,8 +8,8 @@ def append_pdf(input, output):
         output.addPage(input.getPage(pageNum))
 
 parser = argparse.ArgumentParser()
-parser.add_argument("source", nargs='+', help="List of input files to be merged")
-parser.add_argument("-o", "--output", help="name of file to write results to")
+parser.add_argument("input", nargs='+', help="List of input files to be merged")
+parser.add_argument("-o", "--output", help="name of file to write results to", default="out.pdf")
 
 args = parser.parse_args()
 
@@ -17,8 +17,8 @@ args = parser.parse_args()
 output = PdfFileWriter()
 
 # Appending two pdf-pages from two different files
-for i in range(len(args.source)):
-    append_pdf(PdfFileReader(open(args.source[i], "rb")), output)
+for i in range(len(args.input)):
+    append_pdf(PdfFileReader(open(args.input[i], "rb")), output)
 
 # Writing all the collected pages to a file
 output.write(open(args.output,"wb"))

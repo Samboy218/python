@@ -1,6 +1,6 @@
 I'm tired of needing to merge pdf documents, and getting all of these annoying
-    websites who think it's okay for me to upload my documents to their 
-    processing system.
+websites who think it's okay for me to upload my documents to their 
+processing system.
 
 
 For this you need to have pypdf2
@@ -8,10 +8,9 @@ For this you need to have pypdf2
 
 and you're good to go!
 
-This program takes 3 command line arguments:
-Input1 Input2 Output
+This program takes in a list of files to be merged together
+the -o flag can be used to specify the file to output to (default="out.pdf")
 
-Input2 will be concatenated onto Input1, 
-    and this new file will be put into Output
+Example:
 
-
+python3 merge.py file1.pdf file2.pdf file3.pdf -o merged.pdf
