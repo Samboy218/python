@@ -1,0 +1,32 @@
+https://www.reddit.com/r/place/comments/6396u5/rplace_archive_update/
+
+This binary file is a list of little-endian 4 byte unsigned integers.
+
+A state change is described by 4 integers:
+
+    Timestamp in seconds
+    X
+    Y
+    Color id (see table)
+
+In such way, 16 bytes represent a single state change.
+
+You can reconstruct all snapshots from this data.
+
+code    color
+0       #FFFFFF
+1       #E4E4E4
+2       #888888
+3       #222222
+4       #FFA7D1
+5       #E50000
+6       #E59500
+7       #A06A42
+8       #E5D900
+9       #94E044
+10      #02BE01
+11      #00D3DD
+12      #0083C7
+13      #0000EA
+14      #CF6EE4
+15      #820080
